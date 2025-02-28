@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# TMDB React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Une application web React qui interagit avec l’API The Movie Database (TMDB) pour rechercher des films, gérer les favoris, noter et commenter.
 
-## Available Scripts
+## Sommaire
 
-In the project directory, you can run:
+- [Aperçu](#aperçu)
+- [Fonctionnalités](#fonctionnalités)
+- [Prérequis](#prérequis)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Utilisation](#utilisation)
+- [Technologies utilisées](#technologies-utilisées)
+- [Améliorations possibles](#améliorations-possibles)
 
-### `npm start`
+## Aperçu
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Cette application React affiche la liste des films populaires, permet de rechercher des films/acteurs/séries, et d’afficher les détails d’un film (son affiche, son casting, sa note, etc.).  
+Vous pouvez :
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Mettre un film en favori (stockage local).
+- Attribuer une note (système d’étoiles).
 
-### `npm test`
+## Fonctionnalités
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Accueil** – Liste des films tendance ou populaires.
+- **Barre de recherche** – Recherche par titre, acteurs, séries, réalisateurs.
+- **Catégories (Genres)** – Filtrer des films par genre.
+- **Détails d’un film** – Synopsis, casting, moyenne TMDB, etc.
+- **Gestion des favoris** – Ajouter ou retirer un film de vos favoris (localStorage).
+- **Notation** – Système d’étoiles, stocké localement (localStorage).
 
-### `npm run build`
+## Prérequis
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Node.js
+* npm ou Yarn
+* Une clé API TMDB (Gratuite via themoviedb.org)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Cloner le dépot :
+```bash
+git clone https://github.com/USER-NAME/my-react-tmdb-app.git
+cd my-react-tmdb-app
+```
+2. Installer les dépendances : 
 
-### `npm run eject`
+```bash
+npm install
+# ou yarn si vous préférez Yarn
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3.  Créer un fichier .env à la racine du projet
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+REACT_APP_TMDB_API_KEY=VOTRE_CLE_TMDB
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Configuration
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Clé TMDB : Placez la clé dans le .env
 
-## Learn More
+## Utilisation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Démarrer l'application :
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+```
 
-### Code Splitting
+2. Ouvrir le navigateur à l'adresse suivante
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+http://localhost:3000
+```
 
-### Analyzing the Bundle Size
+## Technologies utilisées
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- React (Create React App)
+- React Router
+- Axios pour les appels HTTP
+- TMDB API pour la base de données de films
+- CSS pour le style visuel de l'application
 
-### Making a Progressive Web App
+## Améliorations possibles 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Gérer la pagination TMDB (infinite scroll ou pagination simple)
+- Ajouter un filtrage avancé (Recherche par note, date, ...)
+- Ajouter un switch Light / Dark Mode
+- Ajouter des tests unitaires (Jest / React Testing Library).
