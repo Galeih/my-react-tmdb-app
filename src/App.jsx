@@ -17,9 +17,6 @@ const App = () => {
         <Route path="/movie/:id" element={<MovieDetailsPage />} />
         <Route path="/search" element={<SearchResultsPage />} />
         <Route path="/genres" element={<GenresPage />} />
-
-        {/* Ajoutez d’autres routes si nécessaire */}
-
       </Routes>
     </Router>
   );

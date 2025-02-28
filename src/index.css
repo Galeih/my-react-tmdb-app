@@ -19,7 +19,6 @@
   padding: 0;
 }
 
-/* Optional : style de la scrollbar (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -299,7 +298,7 @@ button:hover {
 }
 .rating-stars span {
   font-size: 1.8rem;
-  color: #666; /* étoile "éteinte" */
+  color: #666; /* stars on */
   cursor: pointer;
   transition: transform var(--transition-fast), color var(--transition-fast);
 }
@@ -308,7 +307,7 @@ button:hover {
   color: var(--accent-color);
 }
 .rating-stars .active {
-  color: var(--accent-color); /* étoile "allumée" */
+  color: var(--accent-color); /* stars off */
 }
 
 /*************************************************************

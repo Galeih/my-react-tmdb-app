@@ -34,11 +34,10 @@ const SearchResultsPage = () => {
       {loading && <p>Chargement...</p>}
       <div className="results-list">
         {results
-          .filter((item) => item.media_type === 'movie') // Par exemple, on n'affiche que les films
+          .filter((item) => item.media_type === 'movie')
           .map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
         ))}
-        {/* Si vous voulez gérer les séries, acteurs, etc, vous pouvez créer d’autres composants */}
       </div>
     </div>
   );
