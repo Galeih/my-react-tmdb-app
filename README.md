@@ -1,70 +1,132 @@
-# Getting Started with Create React App
+TMDB React App
+Une application web React qui interagit avec l’API The Movie Database (TMDB) pour rechercher des films, gérer les favoris, noter et commenter.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sommaire
+Aperçu
+Fonctionnalités
+Capture d'écran (exemple)
+Prérequis
+Installation
+Configuration
+Utilisation
+Scripts disponibles
+Technologies utilisées
+Améliorations possibles
+Contribuer
+Licence
+Crédits
+Aperçu
+Cette application React affiche la liste des films populaires, permet de rechercher des films/acteurs/séries, et d’afficher les détails d’un film (son affiche, son casting, sa note, etc.).
+Vous pouvez :
 
-## Available Scripts
+Mettre un film en favori (stockage local).
+Attribuer une note (système d’étoiles).
+Commenter un film et stocker vos commentaires (via IndexDB ou autre solution).
+Fonctionnalités
+Accueil – Liste des films tendance ou populaires.
+Barre de recherche – Recherche par titre, acteurs, séries, réalisateurs (MultiSearch).
+Catégories (Genres) – Filtrer des films par genre.
+Détails d’un film – Synopsis, casting, moyenne TMDB, etc.
+Gestion des favoris – Ajouter ou retirer un film de vos favoris (localStorage).
+Notation – Système d’étoiles, stocké localement (localStorage).
+Commentaires – Ajouter/supprimer des commentaires (IndexDB via Dexie ou json-server).
+Responsive – S’adapte aux écrans mobiles/desktop (selon votre CSS).
+Capture d’écran (exemple)
+(Optionnel : Insérez ici une ou plusieurs captures d’écran de votre application)
 
-In the project directory, you can run:
+less
+Copier
+Modifier
++---------------------------------------------------+
+| [Une image d'exemple de la page d'accueil]       |
+|   (Ex: screenshot_home.png)                       |
++---------------------------------------------------+
+Prérequis
+Node.js >= 14
+npm >= 6 ou Yarn
+Une clé d’API TMDB (gratuite, via themoviedb.org)
+Installation
+Cloner le dépôt :
 
-### `npm start`
+bash
+Copier
+Modifier
+git clone https://github.com/USER-NAME/my-react-tmdb-app.git
+cd my-react-tmdb-app
+Installer les dépendances :
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+bash
+Copier
+Modifier
+npm install
+(ou yarn si vous préférez Yarn)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Créer un fichier .env à la racine du projet avec votre clé TMDB (pour Create React App).
+Exemple de .env (non commité dans le repo) :
 
-### `npm test`
+bash
+Copier
+Modifier
+REACT_APP_TMDB_API_KEY=VOTRE_CLE_TMDB
+Le préfixe REACT_APP_ est obligatoire pour que Create React App reconnaisse la variable.
+(Optionnel) Démarrer un serveur json-server si vous gérez les commentaires via une fausse API :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+bash
+Copier
+Modifier
+npm install -g json-server
+json-server --watch db.json --port 3001
+(Assurez-vous d’ajuster votre code si vous utilisez json-server au lieu d’IndexDB.)
 
-### `npm run build`
+Configuration
+Clé TMDB : Placez la clé dans le fichier .env.
+IndexDB ou json-server ?
+Par défaut, l’application stocke les commentaires dans IndexDB grâce à Dexie. Si vous préférez une petite API locale, configurez json-server et modifiez les appels à l’API commentaires dans un fichier commentsApi.js.
+(Facultatif) Ajoutez tout détail technique sur la configuration supplémentaire (ports, variables d’environnement additionnelles, etc.)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Utilisation
+Démarrer l’application :
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+bash
+Copier
+Modifier
+npm start
+Ouvrir votre navigateur à l’adresse :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+arduino
+Copier
+Modifier
+http://localhost:3000
+Naviguez sur la page d’accueil, effectuez une recherche, consultez les détails d’un film, etc.
 
-### `npm run eject`
+Scripts disponibles
+Dans ce projet, vous pouvez exécuter :
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm start
+Lance l’application en mode développement. L’URL par défaut est http://localhost:3000.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+npm run build
+Compile l’application pour la production.
+Les fichiers optimisés se trouveront dans le dossier build/.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+npm test
+Lance l’interface de tests (Jest). (Si vous avez des tests configurés)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+npm run eject
+Commande avancée – Éjecte la configuration Create React App (irréversible).
 
-## Learn More
+(Si vous utilisez Yarn, remplacez npm par yarn.)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Technologies utilisées
+React (Create React App)
+React Router pour la navigation
+Axios pour les appels HTTP
+Dexie.js (IndexDB) ou json-server (optionnel) pour les commentaires
+TMDB API pour la base de données de films
+CSS3 (ou Sass/Tailwind/etc., selon votre choix)
+Améliorations possibles
+Gérer la pagination TMDB (infinite scroll ou pagination classique).
+Ajouter un filtrage avancé (recherche par note, date, etc.).
+Ajouter un switch Dark / Light Mode.
+Ajouter des tests unitaires (Jest / React Testing Library).
+Déploiement CI/CD (GitHub Actions, Netlify, Vercel, etc.).
